@@ -11,9 +11,3 @@ RUN sed -i 's/80/8081/g' /etc/apache2/ports.conf && \
 
 # Expose the custom port
 EXPOSE 8081
-
-COPY hello.sh /tmp
-
-RUN chmod +x /tmp/hello.sh
-
-RUN /tmp/hello.sh
