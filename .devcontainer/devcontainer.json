@@ -1,0 +1,8 @@
+{
+  "name": "Blank Codespace",
+  "dockerFile": "Dockerfile",
+  "features": {},
+  "forwardPorts": [8081],
+  "postCreateCommand": "",
+  "customizations": {}
+}

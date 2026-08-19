@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Figure out who I am
+myself=$(whoami)
+
+# Initialize MariaDB
+tmpfile=$(mktemp)
+cat > ${tmpfile} << EOF
+#!/bin/bash
+mariadbd-safe
+nohup mariadbd --user=mysql >& /dev/null &
+EOF
+chmod +x ${tmpfile}
+echo "Running MariaDB daemon in safe mode for 10 seconds..."
+sudo nohup ${tmpfile} >& /dev/null &
+# Time to do something as regular user (with sudo)
+sleep 10
+echo "Shutting down Mariab DB daemon in safe mode..."
+echo SHUTDOWN | sudo mariadb -u root
+rm ${tmpfile}
+echo "MariaDB should be running now"
+echo ""
+
+# Start Apache
+if [ -d /var/www/html ]; then
+    echo "Setting up Apache HTML directory"
+    sudo rm -rf /var/www/html
+    sudo ln -s /workspaces/${RepositoryName}/html /var/www/html
+fi
+sudo /usr/sbin/apachectl start
+echo "Apache should be running op port 8081"
