@@ -31,7 +31,7 @@ echo ""
 if [ -d /var/www/html ]; then
     echo "Setting up Apache HTML directory"
     sudo rm -rf /var/www/html
-    sudo ln -s ${PWD}/html /var/www/html
+    sudo ln -s ${PWD} /var/www/html
 fi
 sudo /usr/sbin/apachectl start
 echo "Apache should be running op port 8081"
