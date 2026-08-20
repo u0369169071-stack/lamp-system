@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Check whether in directory containing html
-if [ ! -d ${PWD}/html ]; then
-    echo "Please run from the directory where html is located!"
-    exit
-fi
-
 # Figure out who I am
 myself=$(whoami)
 
