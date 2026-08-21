@@ -11,10 +11,10 @@ mariadbd-safe
 nohup mariadbd --user=mysql >& /dev/null &
 EOF
 chmod +x ${tmpfile}
-echo "Running MariaDB daemon in safe mode for 3 seconds..."
+echo "Running MariaDB daemon in safe mode for 10 seconds..."
 sudo nohup ${tmpfile} >& /dev/null &
 # Time to do something as regular user (with sudo)
-sleep 3
+sleep 10
 echo "Shutting down Mariab DB daemon in safe mode..."
 echo SHUTDOWN | sudo mariadb -u root
 rm ${tmpfile}
