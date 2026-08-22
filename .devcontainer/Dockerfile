@@ -10,4 +10,4 @@ RUN sed -i 's/80/8081/g' /etc/apache2/ports.conf && \
     sed -i 's/:80/:8081/g' /etc/apache2/sites-available/000-default.conf
 
 # Expose the custom port
-EXPOSE 8081
+EXPOSE 3306 8081

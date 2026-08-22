@@ -2,7 +2,7 @@
   "name": "LAMP system",
   "dockerFile": "Dockerfile",
   "features": {},
-  "forwardPorts": [8081],
+  "forwardPorts": [3306, 8081],
   "postCreateCommand": "",
   "postStartCommand" : "bash .devcontainer/start_services.sh",
   "customizations": {
