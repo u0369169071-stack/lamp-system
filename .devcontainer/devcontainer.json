@@ -5,5 +5,11 @@
   "forwardPorts": [8081],
   "postCreateCommand": "",
   "postStartCommand" : "bash .devcontainer/start_services.sh",
-  "customizations": {}
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client"
+      ]
+    }
+  }
 }
